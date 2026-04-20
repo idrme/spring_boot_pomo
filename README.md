@@ -17,13 +17,25 @@ Technologies utilisées :
 
 # Commandes 
 
-### Lancer le projet
+### Lancer le projet (sans ansible)
 ```
+cd services
 docker compose up --build -d # Dev
 docker compose -f docker-compose.prod.yml up --build -d # Prod
 ```
 Bien attendre que Spring soit prêt.
 Vous pouvez enlever l'argument -d pour voir les logs.
+
+### Déployer avec Ansible
+Modifier inventory.ini
+```
+monserveur ansible_host=192.168.0.29 ansible_user=vboxuser
+```
+Puis lancer
+```
+./launch.sh
+```
+
 
 ### Pour accéder à l'application
 ```
